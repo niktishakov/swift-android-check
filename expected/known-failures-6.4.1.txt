@@ -3,3 +3,13 @@ aarch64 cxx-exception-ptr-across-threads
 aarch64 cxx-future-from-async
 aarch64 cxx-promise-set-exception
 aarch64 cxx-swift-exception-bridge-shim
+armv7 cxx-nested
+armv7 cxx-exception-ptr-across-threads
+armv7 cxx-future-from-async
+armv7 cxx-promise-set-exception
+armv7 cxx-swift-exception-bridge-shim
+x86_64 cxx-nested
+x86_64 cxx-exception-ptr-across-threads
+x86_64 cxx-future-from-async
+x86_64 cxx-promise-set-exception
+x86_64 cxx-swift-exception-bridge-shim

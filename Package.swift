@@ -11,7 +11,12 @@ let package = Package(
     ],
     targets: [
         // Formats dates, numbers and durations, converts encodings and runs ICU transforms and regexes.
-        .executableTarget(name: "FoundationCheck"),
+        // The runpath lets it find the Swift libraries next to it: under Android's ARM translation,
+        // LD_LIBRARY_PATH doesn't reach the program.
+        .executableTarget(
+            name: "FoundationCheck",
+            linkerSettings: [.unsafeFlags(["-Xlinker", "-rpath", "-Xlinker", "$ORIGIN"])]
+        ),
         // C++ exception handling and Swift Concurrency, one check per process.
         .executableTarget(name: "RuntimeCheck", dependencies: ["CxxChecks"]),
         .target(name: "CxxChecks"),
