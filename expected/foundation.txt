@@ -1,0 +1,42 @@
+date en_US Friday, January 15, 2027 at 8:00 AM
+number en_US 1,234,567.891 | €99.50
+duration en_US 1 hour, 2 minutes, 5 seconds
+capitalized en_US Friday, January 15, 2027 | Istanbul Ijssel
+relative en_US In 3 months
+date de_DE Freitag, 15. Januar 2027 um 8:00
+number de_DE 1.234.567,891 | 99,50 €
+duration de_DE 1 Stunde, 2 Minuten und 5 Sekunden
+capitalized de_DE Freitag, 15. Januar 2027 | Istanbul Ijssel
+relative de_DE In 3 Monaten
+date fr_FR vendredi 15 janvier 2027 à 8:00
+number fr_FR 1 234 567,891 | 99,50 €
+duration fr_FR 1 heure, 2 minutes et 5 secondes
+capitalized fr_FR Vendredi 15 janvier 2027 | Istanbul Ijssel
+relative fr_FR Dans 3 mois
+date ru_RU пятница, 15 января 2027 г. в 8:00
+number ru_RU 1 234 567,891 | 99,50 €
+duration ru_RU 1 час, 2 минуты, 5 секунд
+capitalized ru_RU Пятница, 15 января 2027 г. | Istanbul Ijssel
+relative ru_RU Через 3 месяца
+date ja_JP 2027年1月15日 金曜日 8:00
+number ja_JP 1,234,567.891 | €99.50
+duration ja_JP 1時間 2分 5秒
+capitalized ja_JP 2027年1月15日 金曜日 | Istanbul Ijssel
+relative ja_JP 3 か月後
+date ar_EG الجمعة، ١٥ يناير، ٢٠٢٧، ٨:٠٠ ص
+number ar_EG ١٬٢٣٤٬٥٦٧٫٨٩١ | ‏٩٩٫٥٠ €
+duration ar_EG ساعة، دقيقتان، و٥ ثوان
+capitalized ar_EG الجمعة، ١٥ يناير، ٢٠٢٧ | Istanbul Ijssel
+relative ar_EG خلال ٣ أشهر
+date tr_TR 15 Ocak 2027 Cuma 8:00
+number tr_TR 1.234.567,891 | €99,50
+duration tr_TR 1 saat 2 dakika 5 saniye
+capitalized tr_TR 15 Ocak 2027 Cuma | İstanbul İjssel
+relative tr_TR 3 ay sonra
+encoding 8 22 bytes
+encoding 3 -1 bytes
+encoding 11 14 bytes
+encoding 9 14 bytes
+encoding 30 -1 bytes
+transform Privet, mir
+regex 4 matches

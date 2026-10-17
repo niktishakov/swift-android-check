@@ -1,0 +1,5 @@
+aarch64 cxx-nested
+aarch64 cxx-exception-ptr-across-threads
+aarch64 cxx-future-from-async
+aarch64 cxx-promise-set-exception
+aarch64 cxx-swift-exception-bridge-shim
