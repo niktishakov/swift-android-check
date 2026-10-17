@@ -42,8 +42,9 @@ jobs:
           echo "SDK: $SDK_URL"
           sha256sum "$RUNNER_TEMP/sdk.tar.gz"
           swift sdk install "$RUNNER_TEMP/sdk.tar.gz"
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "ndk;$NDK_VERSION" > /dev/null
-          SDK_DIR=$(find ~/.swiftpm/swift-sdks -maxdepth 2 -type d -name swift-android | head -1)
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "ndk;$NDK_VERSION" > /dev/null
+          SDK_DIR=$(find "$HOME" -maxdepth 7 -type d -path "*swift-sdks/*.artifactbundle/swift-android" | head -1)
+          echo "SDK installed at $SDK_DIR"
           ANDROID_NDK_HOME="$ANDROID_HOME/ndk/$NDK_VERSION" "$SDK_DIR/scripts/setup-android-sdk.sh"
           echo "SDK_DIR=$SDK_DIR" >> "$GITHUB_ENV"
 
