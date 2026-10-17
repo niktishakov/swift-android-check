@@ -7,18 +7,21 @@
 #
 # The checks must already be built with build.sh. A failure listed in known-failures-file
 # doesn't fail the run, and a listed check that passes is reported as fixed.
+# Failures listed in expected/emulator-limits.txt come from the emulator, not the SDK,
+# and don't fail the run either.
 set -uo pipefail
 
 SDK=$1
 KNOWN=${2:-/dev/null}
 HERE=$(cd "$(dirname "$0")" && pwd)
+LIMITS=$HERE/../expected/emulator-limits.txt
 SUMMARY=${GITHUB_STEP_SUMMARY:-/dev/stdout}
 ARCHS=${ARCHS:-aarch64 armv7 x86_64}
 
 unexpected=0
 {
-    echo "| Arch | Passed | Failed (known) | Failed (new) | Fixed |"
-    echo "|---|---|---|---|---|"
+    echo "| Arch | Passed | Failed (known) | Failed (new) | Fixed | Emulator limit |"
+    echo "|---|---|---|---|---|---|"
 } >> "$SUMMARY"
 
 for arch in $ARCHS; do
@@ -27,7 +30,7 @@ for arch in $ARCHS; do
     "$HERE/run-checks.sh" "$arch" "$("$HERE/build.sh" --show-bin-path "$arch")" "$SDK" | tee "$log"
     echo "::endgroup::"
 
-    passed=0; known=0; new=0; fixed=0
+    passed=0; known=0; new=0; fixed=0; limit=0
     while read -r status name rest; do
         case $status in
             ok)
@@ -39,7 +42,10 @@ for arch in $ARCHS; do
                 ;;
             FAIL)
                 name=${name%:}
-                if grep -qx "$arch $name" "$KNOWN"; then
+                if grep -qx "$arch $name" "$LIMITS"; then
+                    limit=$((limit + 1))
+                    echo "emulator limit: $arch $name"
+                elif grep -qx "$arch $name" "$KNOWN"; then
                     known=$((known + 1))
                 else
                     new=$((new + 1))
@@ -50,7 +56,7 @@ for arch in $ARCHS; do
     done < "$log"
     rm -f "$log"
 
-    echo "| $arch | $passed | $known | $new | $fixed |" >> "$SUMMARY"
+    echo "| $arch | $passed | $known | $new | $fixed | $limit |" >> "$SUMMARY"
     unexpected=$((unexpected + new))
 done
 

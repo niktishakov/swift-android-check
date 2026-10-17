@@ -9,6 +9,8 @@ It builds two small command-line programs with the SDK and runs them on an Andro
 
 The emulator is an x86_64 Android 11 image. x86_64 code runs natively; aarch64 and armv7 code runs through Android's ARM translation, which is not the same as real ARM hardware.
 
+The arm64 translation stops `FoundationCheck` with `Illegal instruction`, while the same executable works on native arm64. This is listed in [`expected/emulator-limits.txt`](expected/emulator-limits.txt) and doesn't fail the run, so check aarch64 Foundation on a native arm64 device or emulator. GitHub's arm64 runners have no KVM, so they can't run a native arm64 emulator.
+
 ## Checking an SDK
 
 - The released SDK is checked on every push.
