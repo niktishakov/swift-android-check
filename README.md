@@ -14,7 +14,7 @@ The arm64 translation stops `FoundationCheck` with `Illegal instruction`, while 
 ## Checking an SDK
 
 - The released SDK is checked on every push.
-- To check another build, run the **Check** workflow manually and pass the URL of its `.artifactbundle.tar.gz`.
+- To check another build, run the **Check** workflow manually and pass the URL of its `.artifactbundle.tar.gz`, or the tag of a release in this repository that has it as an asset. A draft release works too, so a test build doesn't have to be public. Set `archs` when the SDK doesn't contain all three architectures.
 
 Checks that fail with the released SDK are listed in [`expected/known-failures-6.4.1.txt`](expected/known-failures-6.4.1.txt). They don't fail the run, and the summary shows when one of them starts to pass. For any other SDK, every failure fails the run.
 
